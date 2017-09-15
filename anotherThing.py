@@ -1,9 +1,10 @@
+import random
+
 f = open("occupations.csv","r") #opens file with name of "test.txt"
 string = f.read()
 f.close
 
 d={}
-
 
 def function():
     quoteCount = 0
@@ -31,10 +32,20 @@ def function():
         try:
             d[key]=float(value)   
         except ValueError:
-            print ""          
+            print ""         
         character+=1
-    return d   
+    del d["Total"] 
+    return d  
+     
+function()
 
-print function()
+def randomJob():
+    x=random.randint(0,999)
+    y=0
+    for key in d:
+        if x>=y and x<d[key]*10+y:
+            return key
+        else:
+            y+=d[key]*10
 
-
+print randomJob()
