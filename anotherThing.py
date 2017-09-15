@@ -28,12 +28,13 @@ def function():
                     key+=string[character]
                 #print (string[character]+str(character)+str(isValue))
             character+=1
-        d[key]=value       
+        try:
+            d[key]=float(value)   
+        except ValueError:
+            print ""          
         character+=1
     return d   
 
 print function()
-
-
 
 
